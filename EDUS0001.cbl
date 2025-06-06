@@ -108,9 +108,9 @@
       *-----------------------------------------------------------------
            MOVE 002                         TO MSG1-CD-SEQL-ERROR
 
-           MOVE ZEROS                       TO SD255S-VL-SML
+           MOVE ZEROS                       TO S0001S-VL-SML
 
-           IF  SD255E-TX-VRF EQUAL SPACES
+           IF  S0001E-TX-VRF EQUAL SPACES
                SET  ERROR-PROGRAMADO         TO TRUE
                MOVE 002                     TO MSG1-CD-ERROR-TS
                MOVE 003                     TO MSG1-CD-SEQL-ERROR
@@ -119,7 +119,7 @@
                PERFORM 999000-GRAVA-ERROR-E-ENCERRA
            END-IF
 
-           IF  SD255E-TX-FON EQUAL SPACES
+           IF  S0001E-TX-FON EQUAL SPACES
                SET  ERROR-PROGRAMADO         TO TRUE
                MOVE 003                     TO MSG1-CD-ERROR-TS
                MOVE 004                     TO MSG1-CD-SEQL-ERROR
@@ -128,8 +128,8 @@
                PERFORM 999000-GRAVA-ERROR-E-ENCERRA
            END-IF
 
-           MOVE SD255E-TX-VRF               TO GDA-TX1
-           MOVE SD255E-TX-FON               TO GDA-TX2
+           MOVE S0001E-TX-VRF               TO GDA-TX1
+           MOVE S0001E-TX-FON               TO GDA-TX2
            .
        110000-SAI.
            EXIT.
@@ -155,7 +155,7 @@
               PERFORM 210000-VRF-SIM
            END-IF
 
-           MOVE DISTANCE                   TO SD255S-VL-SML
+           MOVE DISTANCE                   TO S0001S-VL-SML
            .
        200000-SAI.
            EXIT.
@@ -308,12 +308,12 @@
            MOVE  MSG1-TX-ERROR-TS            TO MSGKW999-VL-VRV-MNT
            PERFORM 999003-ADICIONA-VRV-MNT
 
-           MOVE 'SD255E-TX-VRF'             TO MSGKW999-NM-VRV-MNT
-           MOVE SD255E-TX-VRF               TO MSGKW999-VL-VRV-MNT
+           MOVE 'S0001E-TX-VRF'             TO MSGKW999-NM-VRV-MNT
+           MOVE S0001E-TX-VRF               TO MSGKW999-VL-VRV-MNT
            PERFORM 999003-ADICIONA-VRV-MNT
 
-           MOVE 'SD255E-TX-FON'             TO MSGKW999-NM-VRV-MNT
-           MOVE SD255E-TX-FON               TO MSGKW999-VL-VRV-MNT
+           MOVE 'S0001E-TX-FON'             TO MSGKW999-NM-VRV-MNT
+           MOVE S0001E-TX-FON               TO MSGKW999-VL-VRV-MNT
            PERFORM 999003-ADICIONA-VRV-MNT
 
            MOVE DISTANCE                   TO DISTANCE-DSP
